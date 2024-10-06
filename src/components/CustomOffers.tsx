@@ -2,32 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { Star, StarHalf } from "lucide-react";
 
-const productsData = [
-  {
-    image: "/offers/image1.png",
-    text: "T-shirt with Tape Details",
-    price: "$120",
-  },
-  {
-    image: "/offers/image2.png",
-    text: "Skinny Fit Jeans",
-    price: "$240",
-    prevPrice: "$260",
-    badge: "-20%",
-  },
-  {
-    image: "/offers/image3.png",
-    text: "Checkered Shirt",
-    price: "$180",
-  },
-  {
-    image: "/offers/image4.png",
-    text: "Sleeve Striped T-shirt",
-    price: "$130",
-    prevPrice: "$160",
-    badge: "-30%",
-  },
-];
 const CustomOffers = ({ styling, text, arrivalData }: any) => {
   return (
     <section>
