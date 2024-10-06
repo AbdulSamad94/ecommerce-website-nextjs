@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "E-Commerce Website by AS",
   description:
     "A Modern E-Commerce Website using Next.js & tailwindCSS of figma desin. ",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
