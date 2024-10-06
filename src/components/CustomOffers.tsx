@@ -1,8 +1,19 @@
 import React from "react";
 import Image from "next/image";
 import { Star, StarHalf } from "lucide-react";
+import { ArrivalItem } from "./TypeSafety";
 
-const CustomOffers = ({ styling, text, arrivalData }: any) => {
+interface CustomOffersProps {
+  styling: string;
+  text: string;
+  arrivalData: ArrivalItem[];
+}
+
+const CustomOffers: React.FC<CustomOffersProps> = ({
+  styling,
+  text,
+  arrivalData,
+}) => {
   return (
     <section>
       <div>

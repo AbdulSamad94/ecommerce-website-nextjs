@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
 import CustomOffers from "./CustomOffers";
-const newArrivalsData = [
+import { ArrivalItem } from "./TypeSafety";
+
+const newArrivalsData: ArrivalItem[] = [
   {
     image: "/offers/image1.png",
     text: "T-shirt with Tape Details",
@@ -28,7 +30,7 @@ const newArrivalsData = [
   },
 ];
 
-const topSelling = [
+const topSelling: ArrivalItem[] = [
   {
     image: "/offers/image5.png",
     text: "Vertical Stripped Shirt",
