@@ -24,7 +24,7 @@ const CustomOffers: React.FC<CustomOffersProps> = ({
         </h1>
       </div>
       <div className="flex justify-center lg:flex-row flex-col gap-y-20 md:gap-y-0 items-center gap-x-4 mt-14">
-        {arrivalData.map((items: any, index: any) => (
+        {arrivalData.map((items, index) => (
           <div key={index}>
             <div>
               <Image
