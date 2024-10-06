@@ -46,12 +46,16 @@ const Hero = () => {
           </div>
         </div>
         <div className="relative">
-          <img
+          <Image
             src="/hero/vector.png"
             alt="star"
+            width={80}
+            height={80}
             className="w-20 h-20 absolute -left-20 top-1/4"
           />
-          <img
+          <Image
+            width={56}
+            height={56}
             src="/hero/vector.png"
             alt="star"
             className="w-14 h-14 absolute right-5 top-10"
