@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="h-[4000px]">
         {children}
         <Analytics />
       </body>
