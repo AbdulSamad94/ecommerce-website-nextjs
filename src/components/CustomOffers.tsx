@@ -33,8 +33,8 @@ const CustomOffers: React.FC<CustomOffersProps> = ({
                 width={295}
                 height={270}
                 className={`${
-                  items.image === "$240" ? "md:h-[298px]" : "md:h-[298px]"
-                } rounded-3xl md:w-[295px] w-[190px] h-[190px] `}
+                  items.image === "$240" ? "h-[298px]" : "h-[298px]"
+                } rounded-3xl w-[295px] `}
               />
               <div className="text-lg font-bold mt-3">{items.text}</div>
               <div className="flex items-center mb-1 gap-x-1">
