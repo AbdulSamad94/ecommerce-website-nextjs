@@ -23,7 +23,7 @@ const CustomOffers: React.FC<CustomOffersProps> = ({
           {text}
         </h1>
       </div>
-      <div className="flex justify-center lg:flex-row flex-col gap-y-20 md:gap-y-0 items-center gap-x-4 mt-14">
+      <div className="flex justify-center md:flex-row flex-col md:gap-y-0  gap-y-12 items-center gap-x-2 mt-14">
         {arrivalData.map((items, index) => (
           <div key={index}>
             <div>
@@ -33,8 +33,8 @@ const CustomOffers: React.FC<CustomOffersProps> = ({
                 width={295}
                 height={270}
                 className={`${
-                  items.image === "$240" ? "h-[298px]" : "h-[298px]"
-                } rounded-3xl`}
+                  items.image === "$240" ? "md:h-[298px]" : "md:h-[298px]"
+                } rounded-3xl md:w-[295px] w-[190px] h-[190px] `}
               />
               <div className="text-lg font-bold mt-3">{items.text}</div>
               <div className="flex items-center mb-1 gap-x-1">
