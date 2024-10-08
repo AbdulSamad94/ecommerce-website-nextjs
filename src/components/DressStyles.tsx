@@ -4,7 +4,7 @@ import Image from "next/image";
 const DressStyles = () => {
   return (
     <section className="mt-20">
-      <div className="w-[90%] h-full py-10 m-auto rounded-2xl bg-slate-200 ">
+      <div className="w-[90%] h-full py-10 m-auto rounded-2xl bg-zinc-200/90 ">
         <div className="mb-10">
           <h1 className="text-[32px] font-bold text-center">
             BROWSE BY dress STYLE
