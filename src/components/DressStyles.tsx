@@ -4,23 +4,23 @@ import Image from "next/image";
 const DressStyles = () => {
   return (
     <section className="mt-20">
-      <div className="w-[90%] h-full py-10 m-auto rounded-2xl bg-zinc-200/90 ">
-        <div className="mb-10">
+      <div className="w-[90%] h-full lg:py-10 py-8 mx-auto rounded-2xl bg-zinc-200/90 ">
+        <div className="lg:mb-10 mb-8">
           <h1 className="text-[32px] font-bold text-center">
             BROWSE BY dress STYLE
           </h1>
         </div>
         <div className="flex lg:flex-row flex-col justify-center gap-4 items-center mb-4 px-12">
-          <div className="lg:w-[400px] lg:h-[270px] w-[300px ] h-[190px] relative bg-white rounded-xl overflow-hidden cursor-pointer">
+          <div className="lg:w-[400px] lg:h-[270px] w-[300px] h-[190px] relative bg-white rounded-xl overflow-hidden cursor-pointer">
             <p className="text-[28px] font-bold absolute top-6 left-7 z-10">
               Casual
             </p>
             <Image
               src="/dressStyle/image1.png"
               alt="img-1"
-              className="w-full h-auto object-cover"
-              priority
-              fill
+              width={310}
+              height={219}
+              className="w-[310px] h-full absolute right-0"
             />
           </div>
           <div className="lg:w-[680px] lg:h-[270px] w-[300px] h-[190px] relative bg-white rounded-xl overflow-hidden cursor-pointer">

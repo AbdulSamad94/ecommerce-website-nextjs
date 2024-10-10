@@ -74,7 +74,7 @@ const Testimonials: React.FC = () => {
         >
           {testimonialData.map((items, index) => (
             <SwiperSlide key={index}>
-              <div className="border border-slate-300 lg:py-5 lg:px-8 px-4 py-3 w-[358px] h-[190px] lg:w-[400px] lg:h-[240px] rounded-3xl">
+              <div className="border hover:scale-90 mx-auto transition-all border-slate-300 lg:py-5 lg:px-8 px-4 py-3 w-[300px] h-auto lg:w-[400px] lg:h-[240px] rounded-3xl">
                 <div className="flex gap-x-2">
                   <Star className="w-5 text-yellow-400 fill-current" />
                   <Star className="w-5 text-yellow-400 fill-current" />

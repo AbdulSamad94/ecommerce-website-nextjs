@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="w-full h-[8000px]">
+      <body>
         {children}
         <Analytics />
       </body>
