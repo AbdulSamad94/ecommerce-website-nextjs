@@ -43,8 +43,8 @@ const Testimonials: React.FC = () => {
 
   return (
     <section className="mx-auto">
-      <div className="mt-20 lg:px-14 flex justify-between">
-        <h1 className="text-[38px] font-bold text-left uppercase md:leading-4 leading-none">
+      <div className="mt-20 lg:px-14 px-5 flex justify-between">
+        <h1 className="lg:text-[38px] text-[32px] font-bold text-left uppercase md:leading-4 leading-none">
           Our happy customers
         </h1>
         <div className="flex gap-2 items-end">

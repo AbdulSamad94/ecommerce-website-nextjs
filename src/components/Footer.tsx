@@ -2,6 +2,7 @@ import React from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
 import Image from "next/image";
+import Link from "next/link";
 
 const paymentImg = [
   {
@@ -20,6 +21,26 @@ const paymentImg = [
     src: "/footer/image5.png",
   },
 ];
+
+const SocialLinks = [
+  {
+    icon: <BsTwitter />,
+    link: "/",
+  },
+  {
+    id: "a",
+    icon: <FaFacebookF />,
+    link: "https://www.facebook.com/abdulsamad.siddiqui.1048",
+  },
+  {
+    icon: <BsInstagram />,
+    link: "https://www.instagram.com/abdul_samad_siddiqui_9/",
+  },
+  {
+    icon: <BsGithub />,
+    link: "https://github.com/AbdulSamad94",
+  },
+];
 const Footer = () => {
   return (
     <main className="relative">
@@ -35,18 +56,18 @@ const Footer = () => {
               wear. From women to men.
             </p>
             <div className="flex items-center gap-x-4">
-              <div className="w-[38px] h-[38px] rounded-full bg-white border border-slate-300 flex justify-center items-center">
-                <BsTwitter size={15} className="fill-black" />
-              </div>
-              <div className="w-[38px] h-[38px] rounded-full bg-black flex justify-center items-center">
-                <FaFacebookF size={15} className="fill-white w-auto h-auto" />
-              </div>
-              <div className="w-[38px] h-[38px] rounded-full bg-white border border-slate-300 flex justify-center items-center">
-                <BsInstagram size={16} className="" />
-              </div>
-              <div className="w-[38px] h-[38px] rounded-full bg-white border border-slate-300 flex justify-center items-center">
-                <BsGithub size={15} className="" />
-              </div>
+              {SocialLinks.map((items, index) => (
+                <Link
+                  href={items.link}
+                  target="_blank"
+                  className={`${
+                    items.id ? "bg-black text-white" : "bg-white"
+                  } w-[38px] h-[38px] rounded-full border border-slate-300 flex justify-center items-center`}
+                  key={index}
+                >
+                  {items.icon}
+                </Link>
+              ))}
             </div>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-x-2 lg:w-[65%]">
