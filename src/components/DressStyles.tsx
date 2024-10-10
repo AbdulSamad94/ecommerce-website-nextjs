@@ -11,7 +11,7 @@ const DressStyles = () => {
           </h1>
         </div>
         <div className="flex lg:flex-row flex-col justify-center gap-4 items-center mb-4 px-12">
-          <div className="lg:w-[400px] lg:h-[270px] w-[300px] h-[190px] relative bg-white rounded-xl overflow-hidden cursor-pointer">
+          <div className="lg:w-[400px] lg:h-[270px] w-[300px ] h-[190px] relative bg-white rounded-xl overflow-hidden cursor-pointer">
             <p className="text-[28px] font-bold absolute top-6 left-7 z-10">
               Casual
             </p>
