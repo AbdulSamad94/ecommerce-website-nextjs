@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import scrollLock from "scroll-lock";
-import Link from "next/link";
 
 import {
   Search,
