@@ -26,7 +26,7 @@ const CustomOffers: React.FC<CustomOffersProps> = ({
       <div className="flex justify-center md:flex-row flex-col md:gap-y-0  gap-y-12 items-center gap-x-2 mt-14">
         {arrivalData.map((items, index) => (
           <div key={index}>
-            <div>
+            <div className="cursor-pointer">
               <Image
                 src={items.image}
                 alt="brand-img"

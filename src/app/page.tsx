@@ -10,9 +10,15 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <Hero />
-      <OffersSection />
-      <DressStyles />
+      <section id="shop">
+        <Hero />
+      </section>
+      <section id="onsale">
+        <OffersSection />
+      </section>
+      <section id="brands">
+        <DressStyles />
+      </section>
       <Testimonials />
       <CTR />
       <Footer />
