@@ -32,6 +32,7 @@ const Header = () => {
     }
   }, [click]);
 
+  // this is header
   return (
     <header className="w-full lg:h-28 h-20 flex justify-between lg:justify-around items-center py-4 lg:px-10 px-7">
       <div className="flex relative justify-center items-center gap-x-5">
