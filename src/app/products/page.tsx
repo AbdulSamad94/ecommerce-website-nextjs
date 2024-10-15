@@ -37,11 +37,11 @@ const Page: React.FC = () => {
   }, []);
   if (Loading)
     return (
-      <div className=" w-full h-[300px]  bg-white">
+      <div className=" w-full h-[300px] bg-white">
         <p className="spinner mt-10 mx-auto"></p>
       </div>
     );
-  if (Errors)
+  if (Error)
     return (
       <p className="text-[42px] text-center w-full h-[300px] bg-white font-bold text-red-700">
         Error: {Error}
