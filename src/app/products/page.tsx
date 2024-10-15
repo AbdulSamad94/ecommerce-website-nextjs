@@ -19,7 +19,7 @@ type Product = {
 const Page: React.FC = () => {
   const [Products, SetProducts] = useState<Product[]>([]);
   const [Loading, SetLoading] = useState(true);
-  const [Errors, SetError] = useState<string | null>(null);
+  const [error, SetError] = useState<string | null>(null);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -41,7 +41,7 @@ const Page: React.FC = () => {
         <p className="spinner mt-10 mx-auto"></p>
       </div>
     );
-  if (Error)
+  if (error)
     return (
       <p className="text-[42px] text-center w-full h-[300px] bg-white font-bold text-red-700">
         Error: {Error}
