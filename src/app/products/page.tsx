@@ -17,34 +17,34 @@ type Product = {
 };
 
 const page: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [Products, SetProducts] = useState<Product[]>([]);
+  const [Loading, SetLoading] = useState(true);
+  const [Errors, SetError] = useState<string | null>(null);
 
   useEffect(() => {
     const getProducts = async () => {
       try {
         const data = await fetchProduct();
-        setProducts(data);
+        SetProducts(data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "An error Occured");
+        SetError(err instanceof Error ? err.message : "An error Occured");
       } finally {
-        setLoading(false);
+        SetLoading(false);
       }
     };
 
     getProducts();
   }, []);
-  if (loading)
+  if (Loading)
     return (
       <div className=" w-full h-[300px]  bg-white">
         <p className="spinner mt-10 mx-auto"></p>
       </div>
     );
-  if (error)
+  if (Errors)
     return (
       <p className="text-[42px] text-center w-full h-[300px] bg-white font-bold text-red-700">
-        Error: {error}
+        Error: {Error}
       </p>
     );
   return (
@@ -57,7 +57,7 @@ const page: React.FC = () => {
           <p className="ml-2 font-medium">Shop</p>
         </div>
         <div className="container mx-auto mb-52 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
+          {Products.map((product) => (
             <Link key={product.id} href={`/productid/${product.id}`}>
               <div className="w-[300px] h-[400px] border rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg flex flex-col gap-3 justify-between bg-white">
                 <Image
