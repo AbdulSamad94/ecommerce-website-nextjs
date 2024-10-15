@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import CountUp from "react-countup";
+import Link from "next/link";
 
 const data = [
   {
@@ -30,9 +31,12 @@ const Hero = () => {
             designed to bring out your individuality and cater to your sense of
             style.
           </p>
-          <button className="bg-black text-white py-3 px-5 w-full md:w-48 h-12 rounded-full flex items-center justify-center mb-12">
+          <Link
+            href="/products"
+            className="bg-black text-white py-3 px-5 w-full md:w-48 h-12 rounded-full flex items-center justify-center mb-12"
+          >
             Shop Now
-          </button>
+          </Link>
           <div className="flex gap-10 mb-20 flex-wrap justify-center md:justify-normal">
             {data.map((item, index) => (
               <div key={index}>

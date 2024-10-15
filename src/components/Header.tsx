@@ -10,6 +10,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import Link from "next/link";
 
 const Header = () => {
   const scrollToSection = (id: string) => {
@@ -36,17 +37,19 @@ const Header = () => {
     <header className="w-full lg:h-28 h-20 flex justify-between lg:justify-around items-center py-4 lg:px-10 px-7">
       <div className="flex relative justify-center items-center gap-x-5">
         <Menu onClick={handleClick} className="lg:hidden cursor-pointer" />
-        <h1 className="text-[35px] font-bold tracking-wide cursor-pointer">
-          SHOP.CO
-        </h1>
+        <Link href="/">
+          <h1 className="text-[35px] font-bold tracking-wide cursor-pointer">
+            SHOP.CO
+          </h1>
+        </Link>
       </div>
       <div className="hidden lg:flex justify-center items-center gap-x-4 text-sm list-none">
-        <li
-          onClick={() => scrollToSection("shop")}
+        <Link
+          href="/products"
           className="flex gap-x-1 justify-center items-center cursor-pointer"
         >
           Shop <ChevronDown className="w-4 h-4 cursor-pointer" />
-        </li>
+        </Link>
         <li
           onClick={() => scrollToSection("onsale")}
           className="cursor-pointer"
