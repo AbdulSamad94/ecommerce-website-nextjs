@@ -20,7 +20,7 @@ type ProductPageProps = {
   };
 };
 
-const page = async ({ params }: ProductPageProps) => {
+const Page = async ({ params }: ProductPageProps) => {
   const { productsid } = params;
   const product: Product = await fetchProductById(productsid);
   return (
@@ -67,4 +67,4 @@ const page = async ({ params }: ProductPageProps) => {
   );
 };
 
-export default page;
+export default Page;

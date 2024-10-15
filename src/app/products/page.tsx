@@ -16,7 +16,7 @@ type Product = {
   };
 };
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   const [Products, SetProducts] = useState<Product[]>([]);
   const [Loading, SetLoading] = useState(true);
   const [Errors, SetError] = useState<string | null>(null);
@@ -94,4 +94,4 @@ const page: React.FC = () => {
   );
 };
 
-export default page;
+export default Page;
