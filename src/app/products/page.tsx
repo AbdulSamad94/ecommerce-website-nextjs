@@ -44,7 +44,7 @@ const Page: React.FC = () => {
   if (error)
     return (
       <p className="text-[42px] text-center w-full h-[300px] bg-white font-bold text-red-700">
-        Error: {Error}
+        Error: {error}
       </p>
     );
   return (
