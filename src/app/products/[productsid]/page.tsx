@@ -1,6 +1,5 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { fetchProductById } from "@/app/util/api";
 
 type Product = {
   id: number;
@@ -22,7 +21,14 @@ type ProductPageProps = {
 
 const Page = async ({ params }: ProductPageProps) => {
   const { productsid } = params;
-  const product: Product = await fetchProductById(productsid);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/product/${productsid}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  const { product }: { product: Product } = await res.json();
   return (
     <div className="px-10 mx-5 h-[1000px]">
       <div className="border-t border-slate-300">
