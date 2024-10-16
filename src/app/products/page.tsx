@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Star, StarHalf } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,7 +55,7 @@ const Page: React.FC = () => {
       </p>
     );
   return (
-    <div className="px-10 mx-5">
+    <div className="lg:px-10 lg:mx-5 mx-auto px-5">
       <div className="border-t border-slate-300">
         <div className="mt-4 flex">
           <p className="text-slate-600 flex items-center gap-x-1">
@@ -65,7 +65,11 @@ const Page: React.FC = () => {
         </div>
         <div className="container mx-auto mb-52 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {Products.map((product) => (
-            <Link key={product.id} href={`/products/${product.id}`}>
+            <Link
+              className="flex justify-center"
+              key={product.id}
+              href={`/products/${product.id}`}
+            >
               <div className="w-[300px] h-[400px] border rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg flex flex-col gap-3 justify-between bg-white">
                 <Image
                   width={200}
@@ -81,10 +85,17 @@ const Page: React.FC = () => {
 
                   <div className="flex justify-between items-center mt-4">
                     <div className="flex items-center gap-x-1">
-                      <p className="font-medium">Rating : </p>
-                      <span className="text-slate-500 text-sm mt-1">
-                        {product.rating.rate}
-                      </span>
+                      <div className="flex gap-x-1 items-center">
+                        <Star className="w-5 text-yellow-400 fill-current" />
+                        <Star className="w-5 text-yellow-400 fill-current" />
+                        <Star className="w-5 text-yellow-400 fill-current" />
+                        <Star className="w-5 text-yellow-400 fill-current" />
+                        <StarHalf className="w-5 text-yellow-400 fill-current" />
+                        <p className="font-medium text-sm">
+                          {product.rating.rate} /{" "}
+                          <span className="text-slate-500 text-sm">5</span>
+                        </p>{" "}
+                      </div>
                     </div>
                     <p className="flex font-bold text-xl">
                       {"$"}

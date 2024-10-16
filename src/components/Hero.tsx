@@ -41,7 +41,7 @@ const Hero = () => {
             {data.map((item, index) => (
               <div key={index}>
                 <div className="text-4xl te font-bold mb-2">
-                  <CountUp end={item.number} duration={6} />
+                  <CountUp end={item.number} duration={3} />
                   {"+"}
                 </div>
                 <div className="text-sm md:text-[16px] text-zinc-500 ">
