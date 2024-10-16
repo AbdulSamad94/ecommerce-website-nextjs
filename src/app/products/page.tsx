@@ -22,10 +22,20 @@ const Page: React.FC = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const response = await fetch("/api/product");
-      const data = await response.json();
-      SetProducts(data);
-      SetLoading(false);
+      try {
+        const response = await fetch("/api/product");
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(errorText || "Failed to fetch products");
+        }
+        const data = await response.json();
+        SetProducts(data);
+        SetLoading(false);
+      } catch (err: any) {
+        SetError(err.message);
+      } finally {
+        SetLoading(false);
+      }
     };
 
     getProducts();
