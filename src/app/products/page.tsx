@@ -31,8 +31,10 @@ const Page: React.FC = () => {
         const data = await response.json();
         SetProducts(data);
         SetLoading(false);
-      } catch (err: any) {
-        SetError(err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          SetError(err.message);
+        }
       } finally {
         SetLoading(false);
       }
