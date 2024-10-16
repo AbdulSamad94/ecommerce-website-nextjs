@@ -19,16 +19,29 @@ type ProductPageProps = {
   };
 };
 
-const Page = async ({ params }: ProductPageProps) => {
-  const { productsid } = params;
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/product/${productsid}`,
-    {
-      cache: "no-store",
-    }
-  );
+async function fetchProduct(id: string): Promise<Product | null> {
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
 
-  const { product }: { product: Product } = await res.json();
+  if (!res.ok) {
+    console.error("Failed to fetch product data");
+    return null;
+  }
+
+  const product: Product = await res.json();
+  return product;
+}
+
+const Page = async ({ params }: ProductPageProps) => {
+  const product = await fetchProduct(params.productsid);
+
+  if (!product) {
+    return (
+      <div className="px-10 mx-5 h-[1000px]">
+        <p>Product not found</p>
+      </div>
+    );
+  }
+
   return (
     <div className="px-10 mx-5 h-[1000px]">
       <div className="border-t border-slate-300">

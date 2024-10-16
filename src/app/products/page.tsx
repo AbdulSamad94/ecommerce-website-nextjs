@@ -2,7 +2,6 @@
 
 import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { fetchProduct } from "@/app/util/api";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,14 +22,10 @@ const Page: React.FC = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      try {
-        const data = await fetchProduct();
-        SetProducts(data);
-      } catch (err) {
-        SetError(err instanceof Error ? err.message : "An error Occured");
-      } finally {
-        SetLoading(false);
-      }
+      const response = await fetch("/api/product");
+      const data = await response.json();
+      SetProducts(data);
+      SetLoading(false);
     };
 
     getProducts();
@@ -58,7 +53,7 @@ const Page: React.FC = () => {
         </div>
         <div className="container mx-auto mb-52 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {Products.map((product) => (
-            <Link key={product.id} href={`/product/${product.id}`}>
+            <Link key={product.id} href={`/products/${product.id}`}>
               <div className="w-[300px] h-[400px] border rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg flex flex-col gap-3 justify-between bg-white">
                 <Image
                   width={200}
