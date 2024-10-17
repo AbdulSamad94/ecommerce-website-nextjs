@@ -1,6 +1,5 @@
 "use client";
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { toast } from "react-toastify";
 
 interface Product {
   id: string;
@@ -25,7 +24,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = (product: Product) => {
     if (!product.size) {
-      toast.error("Select any of the size");
+      alert("Select any of the size");
       return;
     }
     setCart((prevCart) => {
