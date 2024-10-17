@@ -1,28 +1,25 @@
+"use client";
+
 import { ChevronRight, Star, StarHalf } from "lucide-react";
 import Image from "next/image";
+import { useCart } from "@/context/ContextApi";
+import React, { useEffect, useState } from "react";
 
 const sizeData = [
-  {
-    name: "Small",
-  },
-  {
-    name: "Medium",
-  },
-  {
-    name: "Large",
-  },
-  {
-    name: "X-Large",
-  },
+  { name: "Small" },
+  { name: "Medium" },
+  { name: "Large" },
+  { name: "X-Large" },
 ];
 
 type Product = {
-  id: number;
+  id: string;
   title: string;
   price: number;
   description: string;
   category: string;
   image: string;
+  size: string;
   rating: {
     rate: number;
   };
@@ -46,16 +43,38 @@ async function fetchProduct(id: string): Promise<Product | null> {
   return product;
 }
 
-const Page = async ({ params }: ProductPageProps) => {
-  const product = await fetchProduct(params.productsid);
+const Page = ({ params }: ProductPageProps) => {
+  const { addToCart } = useCart();
+  const [product, setProduct] = useState<Product | null>(null);
+  const [size, setSize] = useState<string>(String);
+
+  useEffect(() => {
+    const fetchAndSetProduct = async () => {
+      const fetchedProduct = await fetchProduct(params.productsid);
+      setProduct(fetchedProduct);
+    };
+
+    fetchAndSetProduct();
+  }, [params.productsid]);
 
   if (!product) {
     return (
       <div className="px-10 mx-5 h-[1000px]">
-        <p>Product not found</p>
+        <p>Loading.....</p>
       </div>
     );
   }
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.title,
+      price: product.price,
+      image: product.image,
+      quantity: 1,
+      size: size,
+    });
+  };
 
   return (
     <div className="px-10 mx-5 h-[1000px]">
@@ -71,7 +90,6 @@ const Page = async ({ params }: ProductPageProps) => {
         </div>
         <div className="flex justify-center gap-10 mt-12">
           <div className="flex gap-x-4">
-            {/* leftside */}
             <div>
               <div className="border border-slate-300 shadow-lg py-3 px-5 rounded-lg">
                 <Image
@@ -115,14 +133,21 @@ const Page = async ({ params }: ProductPageProps) => {
             <p className="text-slate-600 mt-4 text-lg">Choose Size</p>
             <div className="flex gap-x-5 mt-4">
               {sizeData.map((items, index) => (
-                <div key={index}>
-                  <button className="bg-slate-200 text-slate-600 text-center focus:bg-black focus:text-white transition-all duration-300 px-4 py-2 w-32 h-12 rounded-full">
-                    {items.name}
-                  </button>
-                </div>
+                <button
+                  key={index}
+                  onClick={() => setSize(items.name)}
+                  className={`${
+                    items.name === size ? "bg-black text-white" : "bg-slate-200"
+                  } w-28 rounded-full h-12 py-2 px-5 text-center `}
+                >
+                  {items.name}
+                </button>
               ))}
             </div>
-            <button className="bg-black text-center text-white h-12 w-full px-8 py-3 mt-8 rounded-full flex justify-center items-center">
+            <button
+              onClick={handleAddToCart}
+              className="bg-black text-center text-white h-12 w-full px-8 py-3 mt-8 rounded-full flex justify-center items-center"
+            >
               Add to cart
             </button>
           </div>

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import scrollLock from "scroll-lock";
-
 import {
   Search,
   ChevronDown,
@@ -11,8 +10,10 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
+import { useCart } from "@/context/ContextApi";
 
 const Header = () => {
+  const { cartItemCount } = useCart();
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -78,9 +79,12 @@ const Header = () => {
         />
       </div>
       <div className="flex justify-center items-center gap-x-4">
-        <div>
+        <Link href="/cart" className="relative">
           <ShoppingCart className="w-5 h-5 cursor-pointer" />
-        </div>
+          <div className="bg-black text-white w-4 h-4 text-[8px] flex justify-center items-center rounded-full absolute -right-2 -bottom-1">
+            {cartItemCount}
+          </div>
+        </Link>
         <div>
           <CircleUserRound className="w-5 h-5 cursor-pointer" />
         </div>

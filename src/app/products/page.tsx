@@ -14,7 +14,6 @@ type Product = {
     rate: number;
   };
 };
-
 const Page: React.FC = () => {
   const [Products, SetProducts] = useState<Product[]>([]);
   const [Loading, SetLoading] = useState(true);
@@ -42,6 +41,7 @@ const Page: React.FC = () => {
 
     getProducts();
   }, []);
+
   if (Loading)
     return (
       <div className=" w-full h-[300px] bg-white">
@@ -54,6 +54,7 @@ const Page: React.FC = () => {
         Error: {error}
       </p>
     );
+
   return (
     <div className="lg:px-10 lg:mx-5 mx-auto px-5">
       <div className="border-t border-slate-300">
