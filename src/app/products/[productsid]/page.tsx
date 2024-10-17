@@ -4,6 +4,7 @@ import { ChevronRight, Star, StarHalf } from "lucide-react";
 import Image from "next/image";
 import { useCart } from "@/context/ContextApi";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 const sizeData = [
   { name: "Small" },
@@ -77,20 +78,23 @@ const Page = ({ params }: ProductPageProps) => {
   };
 
   return (
-    <div className="px-10 mx-5 h-[1000px]">
+    <div className="lg:px-10 mx-5 mb-40">
       <div className="border-t border-slate-300">
         <div className="mt-4 flex">
-          <p className="text-slate-600 flex items-center gap-x-1">
+          <Link href="/" className="text-slate-600 flex items-center gap-x-1">
             Home <ChevronRight size={18} />
-          </p>
-          <p className="ml-2 text-slate-700 font-medium flex gap-x-1 items-center">
+          </Link>
+          <Link
+            href="/products"
+            className="ml-2 text-slate-700 font-medium flex gap-x-1 items-center"
+          >
             Shop <ChevronRight size={18} />
-          </p>
+          </Link>
           <p className="font-medium ml-2">{product.category}</p>
         </div>
-        <div className="flex justify-center gap-10 mt-12">
-          <div className="flex gap-x-4">
-            <div>
+        <div className="flex justify-center lg:flex-row flex-col gap-10 mt-12">
+          <div className="flex mx-auto lg:flex-row flex-col-reverse gap-x-4">
+            <div className="w-full h-full lg:h-32 mt-10 lg:mt-0 flex justify-center">
               <div className="border border-slate-300 shadow-lg py-3 px-5 rounded-lg">
                 <Image
                   src={product.image}
@@ -101,19 +105,19 @@ const Page = ({ params }: ProductPageProps) => {
               </div>
             </div>
             <div>
-              <div className="border border-slate-300 shadow-lg py-5 px-10 w-[450px] rounded-2xl">
+              <div className="border border-slate-300 shadow-lg py-5 px-10 lg:w-[450px] rounded-2xl">
                 <Image
                   src={product.image}
                   alt={product.title}
                   width={350}
                   height={350}
-                  className="w-[350px] h-[450px] mx-auto"
+                  className="lg:w-[350px] lg:h-[450px] w-[280px] h-[350px] mx-auto"
                 />
               </div>
             </div>
           </div>
-          <div className="w-1/2">
-            <h1 className="text-[40px] leading-10 font-bold ">
+          <div className="lg:w-1/2">
+            <h1 className="lg:text-[40px] text-2xl font-bold ">
               {product.title}
             </h1>
             <div className="flex my-4 gap-x-1 items-center">
@@ -131,14 +135,14 @@ const Page = ({ params }: ProductPageProps) => {
             <p className="text-sm text-slate-600 my-4">{product.description}</p>
             <div className="bg-slate-300 rounded-full mt-6 h-[2px]"></div>
             <p className="text-slate-600 mt-4 text-lg">Choose Size</p>
-            <div className="flex gap-x-5 mt-4">
+            <div className="lg:flex gap-5 mt-4 grid grid-cols-2 mx-auto">
               {sizeData.map((items, index) => (
                 <button
                   key={index}
                   onClick={() => setSize(items.name)}
                   className={`${
                     items.name === size ? "bg-black text-white" : "bg-slate-200"
-                  } w-28 rounded-full h-12 py-2 px-5 text-center `}
+                  } w-28 h-12 rounded-full py-2 px-5 text-center `}
                 >
                   {items.name}
                 </button>
