@@ -1,6 +1,5 @@
 "use client";
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { toast } from "react-toastify";
 
 interface Product {
   id: string;
@@ -13,9 +12,11 @@ interface Product {
 
 interface CartContextType {
   cart: Product[];
+  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
   addToCart: (product: Product) => void;
   removeFromCart: (productId: string) => void;
   cartItemCount: number;
+  deliveryFee: number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -25,7 +26,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = (product: Product) => {
     if (!product.size) {
-      toast.error("Select any of the size");
+      alert("Select any of the size");
       return;
     }
     setCart((prevCart) => {
@@ -47,12 +48,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const cartItemCount = cart.reduce((count, item) => count + item.quantity, 0);
+  const deliveryFee = 15;
 
   const value = {
     cart,
     addToCart,
     removeFromCart,
     cartItemCount,
+    deliveryFee,
+    setCart,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

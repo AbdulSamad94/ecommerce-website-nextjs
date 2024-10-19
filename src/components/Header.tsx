@@ -96,7 +96,8 @@ const Header = () => {
       >
         <X onClick={handleClick} className="cursor-pointer mt-8 ml-4" />
         <div className="flex flex-col justify-center items-center gap-y-10 text-base uppercase list-none mt-36">
-          <li
+          <Link
+            href="/products"
             onClick={() => {
               scrollToSection("shop");
               setClick(false);
@@ -104,7 +105,7 @@ const Header = () => {
             className="flex gap-x-1 justify-center items-center cursor-pointer"
           >
             Shop <ChevronDown className="w-4 h-4 cursor-pointer" />
-          </li>
+          </Link>
           <li
             onClick={() => {
               scrollToSection("onsale");

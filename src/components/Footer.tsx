@@ -3,6 +3,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
 import Image from "next/image";
 import Link from "next/link";
+import CTR from "./CTR";
 
 const paymentImg = [
   {
@@ -44,7 +45,8 @@ const SocialLinks = [
 const Footer = () => {
   return (
     <main className="relative">
-      <div className="bg-slate-100 h-56 w-full absolute -top-32 -z-10"></div>
+      <div className="bg-slate-100 absolute w-full top-32 h-[200px] -z-10"></div>
+      <CTR />
       <section className="lg:px-12 px-2 bg-slate-100 py-20 -z-10">
         <div className="flex lg:justify-between lg:flex-row flex-col gap-10 mx-auto">
           <div className="lg:w-[20%]">
