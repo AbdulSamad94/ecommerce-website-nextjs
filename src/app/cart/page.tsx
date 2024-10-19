@@ -5,7 +5,7 @@ import { HiMiniTrash } from "react-icons/hi2";
 import Link from "next/link";
 import Image from "next/image";
 
-const page = () => {
+const Page = () => {
   const { cart, setCart, removeFromCart, deliveryFee, cartItemCount } =
     useCart();
 
@@ -122,4 +122,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
